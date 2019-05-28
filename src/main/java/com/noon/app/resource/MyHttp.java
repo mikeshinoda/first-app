@@ -1,5 +1,9 @@
 package com.noon.app.resource;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.google.common.collect.Maps;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,8 @@ public class MyHttp {
     @Path("/v1/firstApp")
     public Response ingest() {
         log.info("HIT IN THE API");
-        return null;
+        JsonObject object = new JsonObject();
+        object.addProperty("title", "value");
+        return Response.status(Response.Status.OK).entity(object.toString()).build();
     }
 }
