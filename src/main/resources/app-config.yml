@@ -1,0 +1,26 @@
+logging:
+  level: INFO
+  loggers:
+    com.noon.noongate: INFO
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: Asia/Calcutta
+      logFormat: "%d [%thread] %-5level %c{15} - [%X{X-Transaction-Key} - %X{X-Request-Key}] - %msg%n%rEx"
+
+server:
+  connector:
+    port: 3434
+    type: http
+  adminContextPath: /admin
+  allowedMethods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - HEAD
+    - OPTIONS
+    - PATCH
+    - PROPFIND
+  applicationContextPath: /
+  type: simple
