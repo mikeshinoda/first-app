@@ -1,19 +1,14 @@
 package com.noon.app.resource;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.google.common.collect.Maps;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.noon.app.models.SecondRoute;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Map;
 
 @Path("/firstApp")
 @Produces(MediaType.APPLICATION_JSON)
