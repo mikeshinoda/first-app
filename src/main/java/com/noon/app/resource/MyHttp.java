@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Map;
 
 @Path("/firstApp")
 @Produces(MediaType.APPLICATION_JSON)
@@ -40,6 +41,19 @@ public class MyHttp {
     public Response ingest2(@NotEmpty @PathParam("abc") String abc) {
         log.info("HIT IN THE API-3");
         log.info(abc);
+        SecondRoute res = new SecondRoute();
+        res.setId(1);
+        res.setMessage("hi");
+        return Response.status(Response.Status.OK).entity(res).build();
+    }
+
+    @POST
+    @Path("/v1/secondRoute2/{abc}")
+    public Response ingest3(@NotEmpty @PathParam("abc") String abc, @NotEmpty Map<String, Object> payload) {
+
+        log.info("HIT IN THE API-4");
+        log.info(abc);
+        log.debug("here is the payload: ", payload);
         SecondRoute res = new SecondRoute();
         res.setId(1);
         res.setMessage("hi");
