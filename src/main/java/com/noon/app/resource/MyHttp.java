@@ -3,6 +3,7 @@ package com.noon.app.resource;
 import com.google.gson.JsonObject;
 import com.noon.app.models.CreateTokenRequest;
 import com.noon.app.models.SecondRoute;
+import com.noon.app.utils.JwtHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Service;
@@ -65,7 +66,10 @@ public class MyHttp {
     public Response ingest4(@Valid CreateTokenRequest payload) {
         SecondRoute res = new SecondRoute();
         res.setId(1);
-        res.setMessage("hi");
+        JwtHandler jwtHandler = new JwtHandler();
+        String token = jwtHandler.createToken("akshit@noon.sa", "7988289150", "1234", "web", 0);
+        log.info(token);
+        res.setMessage(token);
         return Response.status(Response.Status.OK).entity(res).build();
     }
 }
