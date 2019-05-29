@@ -53,7 +53,6 @@ public class MyHttp {
 
         log.info("HIT IN THE API-4");
         log.info(abc);
-        log.debug("here is the payload: ", payload);
         SecondRoute res = new SecondRoute();
         res.setId(1);
         res.setMessage("hi");
