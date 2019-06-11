@@ -24,3 +24,5 @@ server:
     - PROPFIND
   applicationContextPath: /
   type: simple
+
+jwtSecret: "akdsjdjaldkjadkfaljd;lajdfkadjajdljaskjsdjldjkajdlfjdsljsjklsjjsjldkjdlsjljsldjlk"

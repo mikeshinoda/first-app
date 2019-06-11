@@ -1,11 +1,13 @@
 package com.noon.app.resource;
 
 import com.google.gson.JsonObject;
+import com.noon.app.AppConfig;
 import com.noon.app.models.CreateTokenRequest;
 import com.noon.app.models.SecondRoute;
 import com.noon.app.utils.JwtHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
@@ -20,6 +22,10 @@ import java.util.Map;
 @Service
 @Slf4j
 public class MyHttp {
+
+    @Autowired
+    AppConfig appConfig;
+
     @GET
     @Path("/v1/firstApp")
     public Response ingest() {
@@ -65,6 +71,7 @@ public class MyHttp {
     @Path("/v1/createToken")
     public Response ingest4(@Valid CreateTokenRequest payload) {
         SecondRoute res = new SecondRoute();
+        System.out.println(appConfig);
         res.setId(1);
         JwtHandler jwtHandler = new JwtHandler();
         String token = jwtHandler.createToken("akshit@noon.sa", "7988289150", "1234", "web", 0);
